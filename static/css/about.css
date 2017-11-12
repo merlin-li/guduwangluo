@@ -1,0 +1,87 @@
+.topimg {
+  width: 100%;
+  text-align: center;
+  margin: 30px 0 40px;
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+}
+.topimg img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -960px;
+}
+.aboutpadding {
+  padding: 50px 80px;
+}
+.aboutpadding ul {
+  border: 1px solid #F2F2F2;
+  overflow: hidden;
+}
+.aboutpadding ul li {
+  width: 20%;
+  float: left;
+  display: block;
+  height: 275px;
+  overflow: hidden;
+}
+.aboutpadding ul li .aboutbox {
+  height: 275px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+.aboutpadding ul li h3 {
+  font-size: 24px;
+  color: #000;
+  padding-bottom: 10px;
+}
+.aboutpadding ul li span {
+  font-size: 14px;
+  color: #666;
+}
+.aboutpadding ul li img {
+  width: 100%;
+}
+.aboutpadding ul li img:hover {
+  -webkit-transform: scale(1.05, 1.05);
+  -moz-transform: scale(1.05, 1.05);
+  -transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+  transition: transform 0.6s ease 0s;
+  opacity: .95;
+}
+.aboutcontent {
+  padding: 20px 80px 40px;
+}
+.aboutcontent h2 {
+  font-size: 24px;
+  color: #1d1e20;
+  margin-bottom: 20px;
+  background: url(../img/gdjs_ico_19.jpg) no-repeat left center;
+  padding-left: 20px;
+}
+.aboutcontent h3 {
+  font-size: 18px;
+  color: #1d1e20;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #F2F2F2;
+}
+.aboutcontent h5 {
+  font-size: 14px;
+  color: #000;
+  padding-bottom: 10px;
+}
+.aboutcontent p {
+  font-size: 14px;
+  color: #3c3f46;
+  line-height: 30px;
+}
+.aboutcontent span {
+  color: #3c3f46;
+  line-height: 24px;
+}
