@@ -1,4 +1,4 @@
-var developmentEnv = require('./devlopment');
+var developmentEnv = require('./development');
 var productionEnv = require('./production');
 
 module.exports = {

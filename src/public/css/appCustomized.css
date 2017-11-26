@@ -1,0 +1,54 @@
+.topimg {
+  width: 100%;
+  text-align: center;
+  margin: 30px 0 40px;
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+}
+.topimg img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -960px;
+}
+.appCustom {
+  padding: 60px 56px;
+}
+.appCustom li {
+  width: 50%;
+  float: left;
+  padding-bottom: 90px;
+  height: 730px;
+}
+.appCustom li.textright {
+  text-align: right;
+}
+.appCustom li.textleft {
+  text-align: left;
+}
+.appCustom li .cutomBox {
+  padding-top: 130px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+.appCustom li .cutomBox.plbox {
+  padding-left: 90px;
+}
+.appCustom li .cutomBox p {
+  font-size: 36px;
+  color: #3c3f46;
+  padding-top: 8px;
+  padding-bottom: 40px;
+}
+.appCustom li .cutomBox span {
+  color: #797d86;
+  font-size: 16px;
+  line-height: 30px;
+}
+.appCustom li .cutomBox a {
+  display: block;
+  color: #00a0e9;
+  font-size: 16px;
+  padding-top: 10px;
+}

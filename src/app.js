@@ -6,8 +6,22 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
+// 首页
 const index = require('./routes/index')
-const users = require('./routes/users')
+// 关于我们
+const about = require('./routes/about')
+// App定制
+const appcustom = require('./routes/appcustom')
+// 联系我们
+const connect = require('./routes/connect')
+// 技术外包
+const qutsourcing = require('./routes/qutsourcing')
+// 建站套餐
+const sitepackage = require('./routes/sitepackage')
+// 客户案例、客户案例详情
+const customcase = require('./routes/customcase')
+// 解决方案、解决方案详情
+const solution = require('./routes/solution')
 
 // error handler
 onerror(app)
@@ -34,7 +48,14 @@ app.use(async(ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+app.use(about.routes(), about.allowedMethods())
+app.use(connect.routes(), connect.allowedMethods())
+app.use(appcustom.routes(), appcustom.allowedMethods())
+app.use(sitepackage.routes(), sitepackage.allowedMethods())
+app.use(qutsourcing.routes(), qutsourcing.allowedMethods())
+app.use(customcase.routes(), customcase.allowedMethods())
+app.use(solution.routes(), solution.allowedMethods())
+
 
 // error-handling
 app.on('error', (err, ctx) => {
