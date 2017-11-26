@@ -37,7 +37,7 @@ router.get('/', async(ctx, next) => {
     // });
 
     await ctx.render('index', {
-        title: 'Hello Koa 2!'
+        title: '咕德网络'
     });
 })
 module.exports = router
