@@ -2,18 +2,18 @@ const router = require('koa-router')()
 const mongoose = require('mongoose')
 
 router.get('/', async(ctx, next) => {
-    let db = mongoose.connect('mongodb://localhost/test');
+    // let db = mongoose.connect('mongodb://localhost/test');
 
 
-    db.connection.on('error', (error) => {
-        console.log('数据库连接失败' + error)
-    });
-    db.connection.on('open', () => {
-        console.log('mongodb connection success.')
-    });
-    db.connection.on('disconnected', () => {
-        console.log('mongodb disconnected.')
-    });
+    // db.connection.on('error', (error) => {
+    //     console.log('数据库连接失败' + error)
+    // });
+    // db.connection.on('open', () => {
+    //     console.log('mongodb connection success.')
+    // });
+    // db.connection.on('disconnected', () => {
+    //     console.log('mongodb disconnected.')
+    // });
 
     // var TestSchema = new mongoose.Schema({
     //     name : { type:String },
