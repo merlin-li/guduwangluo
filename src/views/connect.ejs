@@ -3,9 +3,11 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title></title>
+        <title><%= contactModel.name %></title>
+        <meta name="keywords" content="<%= contactModel.keywords %>">
+        <meta name="description" content="<%= contactModel.description %>">
         <link rel="stylesheet" type="text/css" href="css/public.css"/>
-        <link rel="stylesheet" type="text/css" href="css/contactUs.css"/>       
+        <link rel="stylesheet" type="text/css" href="css/contactUs.css"/>
     </head>
     <body>
         <header class="nav">
@@ -36,10 +38,7 @@
             <div class="main bgwhite" style="margin: 0 auto 45px;">
                 <div class="contactUs">
                     <h1>杭州总部联系方式</h1>
-                    <p>公司地址 ： 浙江省 杭州市余杭区 996号 海创园1号楼606 </p>
-                    <p>公司电话 ： 0571-66667618</p>
-                    <p>业务邮箱 ： wang@foxmail.com</p>
-                    <p>招聘邮箱 ： yuyang@foxmail.com</p>
+                    <%- pageContent %>
                     <div class="map"><img src="images/map_05.jpg" /></div>
                     <div class="demand">
                         <h3>发布您的需求 以便我们及时联系您</h3>
@@ -63,7 +62,7 @@
                         <div class="tiptext">亲！提交成功，正在火速联系您</div>
                     </div>
                 </div>
-            </div>          
+            </div>
         </section>
         <footer>
             <div class="bottomIntroduce">

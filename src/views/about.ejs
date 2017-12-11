@@ -3,7 +3,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title></title>
+        <title><%= aboutModel.name %></title>
+        <meta name="keywords" content="<%= aboutModel.keywords %>">
+        <meta name="description" content="<%= aboutModel.description %>">
         <link rel="stylesheet" type="text/css" href="/css/public.css"/>
         <link rel="stylesheet" type="text/css" href="/css/about.css"/>
     </head>
@@ -77,11 +79,7 @@
             <div class="main bgwhite" style="margin: 0 auto 20px;">
                 <div class="aboutcontent">
                     <h2>咕德简介</h2>
-                    <p>
-                        咕德网络科技有限公司（Goodwangluo.com）专注于交互式网站设计开发，为企业品牌提供创意设计、策略咨询、创新策划、定制开发、运营及推广等全方位数字化营销服务。<br>
-                        公司创立于2016年，由一群有创意有梦想有实力的年轻团队打造，服务范围主要包括：企业网站品牌设计、策划、营销；移动端设计开发；高端电商平台设计运营；淘宝、天猫店铺设计；微信公众号运营推广；微网站设计开发等。<br>
-                        咕德网络科技有限公司不同于传统的网络科技公司，由网络较高人气知名设计师王宇洋担任公司CEO。这是一支有活力、有梦想、有品位、有创意，与一般团队有独特区别的年轻队伍，只服务于少数高端客户。
-                    </p>
+                    <p><%- aboutModel.mixed.pageContent %></p>
                 </div>
             </div>
             <div class="main bgwhite" style="margin: 0 auto 20px;">

@@ -1,9 +1,12 @@
 // 关于我们
 const router = require('koa-router')()
+const categoryService = require('../services/category')
 
 router.get('/about', async(ctx, next) => {
+    let aboutData = await categoryService.getAboutUs()
+
     await ctx.render('about', {
-        title: '关于我们'
+        aboutModel: aboutData[0]
     });
 })
 

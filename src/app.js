@@ -23,6 +23,8 @@ const customcase = require('./routes/customcase')
 // 解决方案、解决方案详情
 const solution = require('./routes/solution')
 
+const test = require('./routes/test')
+
 // error handler
 onerror(app)
 
@@ -55,6 +57,7 @@ app.use(sitepackage.routes(), sitepackage.allowedMethods())
 app.use(qutsourcing.routes(), qutsourcing.allowedMethods())
 app.use(customcase.routes(), customcase.allowedMethods())
 app.use(solution.routes(), solution.allowedMethods())
+app.use(test.routes(), test.allowedMethods())
 
 
 // error-handling
