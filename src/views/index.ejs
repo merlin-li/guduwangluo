@@ -163,10 +163,11 @@
                         <% }) %>
                     </div>
                     <ul class="cf">
+                        <% homeRenderArray.forEach(function(item) { %>
                         <li>
-                            <a href="" class="details">
+                            <a href="/customerCase/<%= item.id %>" class="details">
                                 <img width="100%" src="/images/bg_02.png" />    
-                                <img class="up-pic" src="/images/listpic.png" />
+                                <img class="up-pic" src="/images/<%= item.thumbnail %>" />
                                 <div class="up-graybox">
                                     <span class="bgbox"></span>
                                     <p class="stit">
@@ -177,106 +178,12 @@
                                 </div>
                             </a>    
                             <div class="cont-wrap">
-                                <h5>金伯利钻石</h5>
-                                <span>用户体验 / 移动平台开发</span>
+                                <h5><%= item.title %></h5>
+                                <span><%= item.abstract %></span>
                                 <p><b class="lFloat">Details</b><a href="" class="rFloat"></a></p>
                             </div>
                         </li>
-                        <li>
-                            <a href="" class="details">
-                                <img width="100%" src="/images/bg_02.png" />
-                                <img class="up-pic" src="/images/listpic.png" />
-                                <div class="up-graybox">
-                                    <span class="bgbox"></span>
-                                    <p class="stit">
-                                        <span class="line linet"></span>
-                                        查看项目
-                                        <span class="line lineb"></span>
-                                    </p>
-                                </div>
-                            </a>    
-                            <div class="cont-wrap">
-                                <h5>金伯利钻石</h5>
-                                <span>用户体验 / 移动平台开发</span>
-                                <p><b class="lFloat">Details</b><a href="" class="rFloat"></a></p>
-                            </div>                          
-                        </li>
-                        <li>
-                            <a href="" class="details">
-                                <img width="100%" src="/images/bg_02.png" />    
-                                <img class="up-pic" src="/images/listpic.png" />
-                                <div class="up-graybox">
-                                    <span class="bgbox"></span>
-                                    <p class="stit">
-                                        <span class="line linet"></span>
-                                        查看项目
-                                        <span class="line lineb"></span>
-                                    </p>
-                                </div>
-                            </a>    
-                            <div class="cont-wrap">
-                                <h5>金伯利钻石</h5>
-                                <span>用户体验 / 移动平台开发</span>
-                                <p><b class="lFloat">Details</b><a href="" class="rFloat"></a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="" class="details">
-                                <img width="100%" src="/images/bg_02.png" />    
-                                <img class="up-pic" src="/images/listpic.png" />
-                                <div class="up-graybox">
-                                    <span class="bgbox"></span>
-                                    <p class="stit">
-                                        <span class="line linet"></span>
-                                        查看项目
-                                        <span class="line lineb"></span>
-                                    </p>
-                                </div>
-                            </a>    
-                            <div class="cont-wrap">
-                                <h5>金伯利钻石</h5>
-                                <span>用户体验 / 移动平台开发</span>
-                                <p><b class="lFloat">Details</b><a href="" class="rFloat"></a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="" class="details">
-                                <img width="100%" src="/images/bg_02.png" />    
-                                <img class="up-pic" src="/images/listpic.png" />
-                                <div class="up-graybox">
-                                    <span class="bgbox"></span>
-                                    <p class="stit">
-                                        <span class="line linet"></span>
-                                        查看项目
-                                        <span class="line lineb"></span>
-                                    </p>
-                                </div>
-                            </a>    
-                            <div class="cont-wrap">
-                                <h5>金伯利钻石</h5>
-                                <span>用户体验 / 移动平台开发</span>
-                                <p><b class="lFloat">Details</b><a href="" class="rFloat"></a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="" class="details">
-                                <img width="100%" src="/images/bg_02.png" />    
-                                <img class="up-pic" src="/images/listpic.png" />
-                                <div class="up-graybox">
-                                    <span class="bgbox"></span>
-                                    <p class="stit">
-                                        <span class="line linet"></span>
-                                        查看项目
-                                        <span class="line lineb"></span>
-                                    </p>
-                                </div>
-                            </a>    
-                            <div class="cont-wrap">
-                                <h5>金伯利钻石</h5>
-                                <span>用户体验 / 移动平台开发</span>
-                                <p><b class="lFloat">Details</b><a href="" class="rFloat"></a></p>
-                            </div>
-                        </li>
+                        <% }) %>
                     </ul>
                 </div>
             </div>
@@ -294,29 +201,29 @@
                                 <h5>金伯利钻石</h5>
                                 <span>用户体验 / 移动平台开发</span>
                                 <p><b class="lFloat">Read more</b><a href="" class="rFloat"></a></p>
-                            </div>                          
+                            </div>
                         </li>
                         <li>
                             <a href="" class="details">
-                                <img width="100%" src="/images/bg_02.png" />    
-                                <img class="up-pic" src="/images/zxpic.png" />                              
-                            </a>    
+                                <img width="100%" src="/images/bg_02.png" />
+                                <img class="up-pic" src="/images/zxpic.png" />
+                            </a>
                             <div class="cont-wrap">
                                 <h5>金伯利钻石</h5>
                                 <span>用户体验 / 移动平台开发</span>
                                 <p><b class="lFloat">Read more</b><a href="" class="rFloat"></a></p>
-                            </div>                          
+                            </div>
                         </li>
                         <li>
                             <a href="" class="details">
-                                <img width="100%" src="/images/bg_02.png" />    
-                                <img class="up-pic" src="/images/zxpic.png" />                              
-                            </a>    
+                                <img width="100%" src="/images/bg_02.png" />
+                                <img class="up-pic" src="/images/zxpic.png" />
+                            </a>
                             <div class="cont-wrap">
                                 <h5>金伯利钻石</h5>
                                 <span>用户体验 / 移动平台开发</span>
                                 <p><b class="lFloat">Read more</b><a href="" class="rFloat"></a></p>
-                            </div>                          
+                            </div>
                         </li>
                     </ul>
                     <h6>媒介资源</h6>
@@ -347,7 +254,7 @@
                         <span class="fl stt">业务咨询</span>
                         <span class="ico ico2"></span>
                     </a>
-                </li>           
+                </li>
                 <li>
                     <a class="f-cb">
                         <span class="fl stt">400-222-3333</span>
@@ -440,7 +347,7 @@
                         <p>版权所有 @ 2015-2017 杭州咕德网络科技有限公司   Copyright @ Goodwangluo.com  ALL Rights Reserved</p>
                         <span>浙 ICP 备 17020666号  </span>
                     </div>
-                </div>              
+                </div>
             </div>
         </footer>
         <script type="text/javascript" src="/js/jquery.min-1.11.3.js" ></script>

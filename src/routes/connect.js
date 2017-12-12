@@ -1,6 +1,6 @@
 // 联系我们
 const router = require('koa-router')()
-const categoryService = require('../services/category')
+const categoryService = require('../services/goodService')
 
 router.get('/connect', async(ctx, next) => {
     let contactData = await categoryService.getContcat()
