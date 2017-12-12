@@ -8,7 +8,7 @@ router.get('/solution', async(ctx, next) => {
     if (result.thumbnails && result.solutionArray) {
         for (let i = 0; i < result.thumbnails.length; i++) {
             solutionModel.push({
-                thumbnail: result.thumbnails[i].fileName,
+                thumbnail: result.thumbnails[i],
                 title: result.solutionArray[i].title,
                 abstract: result.solutionArray[i].abstract,
                 id: result.solutionArray[i]._id

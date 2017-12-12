@@ -28,7 +28,10 @@ module.exports = {
         // console.log(homeContents)
         for (let i = 0; i < homeContents.length; i++) {
             let thumbnail = await this.getMediaById(homeContents[i].thumbnail)
-            thumbnails.push(thumbnail.fileName)
+            let id = '/' + thumbnail._id + '/'
+            let prefix = 'http://houtaiguanli.goodwangluo.com/media/'
+            let date = thumbnail.date.getFullYear().toString() + (thumbnail.date.getMonth() + 1).toString()
+            thumbnails.push(prefix + date + id + thumbnail.fileName)
         }
 
         return {
@@ -52,7 +55,11 @@ module.exports = {
         })
 
         for (let i = 0; i < solutionArray.length; i++) {
-            thumbnails.push(await this.getMediaById(solutionArray[i].thumbnail))
+            let thumbnail = await this.getMediaById(solutionArray[i].thumbnail)
+            let id = '/' + thumbnail._id + '/'
+            let prefix = 'http://houtaiguanli.goodwangluo.com/media/'
+            let date = thumbnail.date.getFullYear().toString() + (thumbnail.date.getMonth() + 1).toString()
+            thumbnails.push(prefix + date + id + thumbnail.fileName)
         }
 
         return {
