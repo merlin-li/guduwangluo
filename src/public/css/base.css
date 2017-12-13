@@ -1,5 +1,8 @@
 /***** css base****************************************************/
 html body{height:100%}
+html {
+filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+-webkit-filter: grayscale(100%);}
 .textarea{
 	border: 1px solid #e5e5e5;
     color: #5e5e5e;
