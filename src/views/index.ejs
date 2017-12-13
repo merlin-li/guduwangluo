@@ -193,42 +193,22 @@
                     <h4 >行业资讯<a href="" class="rFloat">Read more</a></h4>
                     <p class="itip">让价值共享，记录企业发展脚步</p>
                     <ul class="cf">
+                        <% goodNewsArray.forEach(function(item) { %>
                         <li>
-                            <a href="" class="details">
+                            <a href="/news/<%= item.id %>" class="details">
                                 <img width="100%" src="/images/bg_02.png" />
-                                <img class="up-pic" src="/images/zxpic.png" />
+                                <img class="up-pic" src="<%= item.thumbnail %>" />
                             </a>
                             <div class="cont-wrap">
-                                <h5>金伯利钻石</h5>
-                                <span>用户体验 / 移动平台开发</span>
+                                <h5><%= item.title %></h5>
+                                <span><%= item.abstract %></span>
                                 <p><b class="lFloat">Read more</b><a href="" class="rFloat"></a></p>
                             </div>
                         </li>
-                        <li>
-                            <a href="" class="details">
-                                <img width="100%" src="/images/bg_02.png" />
-                                <img class="up-pic" src="/images/zxpic.png" />
-                            </a>
-                            <div class="cont-wrap">
-                                <h5>金伯利钻石</h5>
-                                <span>用户体验 / 移动平台开发</span>
-                                <p><b class="lFloat">Read more</b><a href="" class="rFloat"></a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="" class="details">
-                                <img width="100%" src="/images/bg_02.png" />
-                                <img class="up-pic" src="/images/zxpic.png" />
-                            </a>
-                            <div class="cont-wrap">
-                                <h5>金伯利钻石</h5>
-                                <span>用户体验 / 移动平台开发</span>
-                                <p><b class="lFloat">Read more</b><a href="" class="rFloat"></a></p>
-                            </div>
-                        </li>
+                        <% }) %>
                     </ul>
                     <h6>媒介资源</h6>
-                    <p class="itip">优质素质媒介资源，涵盖各行各业  </p>       
+                    <p class="itip">优质素质媒介资源，涵盖各行各业  </p>
                 </div>
             </div>
             <div class="main bgwhite">
@@ -329,26 +309,7 @@
                 </ul>
             </div>  
             <div class="footernav">
-                <div class="main cf">
-                    <div class="leftphone lFloat">
-                        <p>售前咨询</p>
-                        <span>17189898968</span>
-                        <i></i>
-                    </div>
-                    <div class="rightLsit rFloat">
-                        <ul class="cf">
-                            <li><a href="">关于咕德 </a></li>
-                            <li><a href="">解决方案</a></li>
-                            <li><a href="">联系我们</a></li>
-                            <li><a href="">汇款账户</a></li>
-                            <li><a target="_blank" href="newsInformation.html">新闻资讯</a></li>
-                            <li><a href="">古德外包</a></li>
-                            <li><a href="">咕德</a></li>
-                        </ul>
-                        <p>版权所有 @ 2015-2017 杭州咕德网络科技有限公司   Copyright @ Goodwangluo.com  ALL Rights Reserved</p>
-                        <span>浙 ICP 备 17020666号  </span>
-                    </div>
-                </div>
+                <%- homeModel.value.codeFooter %>
             </div>
         </footer>
         <script type="text/javascript" src="/js/jquery.min-1.11.3.js" ></script>

@@ -3,10 +3,11 @@ const router = require('koa-router')()
 const categoryService = require('../services/goodService')
 
 router.get('/about', async(ctx, next) => {
-    let aboutData = await categoryService.getAboutUs()
+    let aboutModel = await categoryService.getAboutUs()
 
     await ctx.render('about', {
-        aboutModel: aboutData[0]
+        aboutModel,
+        homeModel: await categoryService.getHomeData()
     });
 })
 

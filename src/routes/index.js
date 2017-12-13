@@ -2,10 +2,12 @@ const router = require('koa-router')()
 const optionService = require('../services/goodService')
 
 router.get('/', async(ctx, next) => {
-    let homeData = await optionService.getHomeData()
+    let homeModel = await optionService.getHomeData()
     let homeCategories = await optionService.getHomeCategories()
     let homeDataObj = await optionService.getHomeContents()
+    let goodNewsObj = await optionService.getNews()
     let homeRenderArray = []
+    let goodNewsArray = []
 
     if (homeDataObj.homeContents && homeDataObj.thumbnails) {
         for (let i = 0; i < homeDataObj.homeContents.length; i++) {
@@ -18,10 +20,22 @@ router.get('/', async(ctx, next) => {
         }
     }
 
+    if (goodNewsObj.newsArray && goodNewsObj.thumbnails) {
+        for (let i = 0; i < goodNewsObj.newsArray.length; i++) {
+            goodNewsArray.push({
+                thumbnail: goodNewsObj.thumbnails[i],
+                title: goodNewsObj.newsArray[i].title,
+                abstract: goodNewsObj.newsArray[i].abstract,
+                id: goodNewsObj.newsArray[i]._id
+            })
+        }
+    }
+
     await ctx.render('index', {
-        homeModel: homeData[0],
+        homeModel,
         homeCategories,
-        homeRenderArray
+        homeRenderArray,
+        goodNewsArray
     });
 })
 module.exports = router

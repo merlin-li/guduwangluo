@@ -22,8 +22,9 @@ const sitepackage = require('./routes/sitepackage')
 const customcase = require('./routes/customcase')
 // 解决方案、解决方案详情
 const solution = require('./routes/solution')
+// 行业资讯
+const news = require('./routes/news')
 
-const test = require('./routes/test')
 
 // error handler
 onerror(app)
@@ -57,8 +58,7 @@ app.use(sitepackage.routes(), sitepackage.allowedMethods())
 app.use(qutsourcing.routes(), qutsourcing.allowedMethods())
 app.use(customcase.routes(), customcase.allowedMethods())
 app.use(solution.routes(), solution.allowedMethods())
-app.use(test.routes(), test.allowedMethods())
-
+app.use(news.routes(), news.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

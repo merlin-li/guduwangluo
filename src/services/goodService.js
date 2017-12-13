@@ -3,13 +3,13 @@ let dbModels = require('../models')
 
 module.exports = {
     async getAboutUs() {
-        return await dbModels.category.find({name: '关于我们'})
+        return await dbModels.category.findOne({name: '关于我们'})
     },
     async getContcat() {
-        return await dbModels.category.find({name: '联系我们'})
+        return await dbModels.category.findOne({name: '联系我们'})
     },
     async getHomeData() {
-        return await dbModels.option.find({name: 'siteInfo'})
+        return await dbModels.option.findOne({name: 'siteInfo'})
     },
     async getHomeCategories() {
         return await dbModels.category.find({keywords: 'homecategory'})
@@ -65,6 +65,26 @@ module.exports = {
         return {
             thumbnails,
             solutionArray
+        }
+    },
+    // 获取行业资讯
+    async getNews() {
+        let thumbnails = []
+        let newsCategory = await dbModels.category.findOne({keywords: 'homenews'})
+        let newsCategoryId = newsCategory._id
+        let newsArray = await dbModels.content.find({category: newsCategoryId})
+
+        for (let i = 0; i < newsArray.length; i++) {
+            let thumbnail = await this.getMediaById(newsArray[i].thumbnail)
+            let id = '/' + thumbnail._id + '/'
+            let prefix = 'http://houtaiguanli.goodwangluo.com/media/'
+            let date = thumbnail.date.getFullYear().toString() + (thumbnail.date.getMonth() + 1).toString()
+            thumbnails.push(prefix + date + id + thumbnail.fileName)
+        }
+
+        return {
+            thumbnails,
+            newsArray
         }
     }
 };

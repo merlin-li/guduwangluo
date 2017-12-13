@@ -5,6 +5,7 @@ const optionService = require('../services/goodService')
 router.get('/customerCase', async(ctx, next) => {
     let homeCategories = await optionService.getHomeCategories()
     let homeDataObj = await optionService.getHomeContents()
+    let homeModel = await optionService.getHomeData()
     let homeRenderArray = []
 
     if (homeDataObj.homeContents && homeDataObj.thumbnails) {
@@ -21,17 +22,19 @@ router.get('/customerCase', async(ctx, next) => {
     await ctx.render('customcase', {
         title: '客户案例',
         homeCategories,
-        homeRenderArray
+        homeRenderArray,
+        homeModel
     });
 })
 
 router.get('/customerCase/:id', async(ctx, next) => {
-    let url = ctx.url
-    let caseId = url.substr(url.lastIndexOf('/') + 1)
+    let caseId = ctx.params.id
+    let homeModel = await optionService.getHomeData()
 
     await ctx.render('customcasedetail', {
         title: '客户案例详情',
-        caseModel: await optionService.getContentById(caseId)
+        caseModel: await optionService.getContentById(caseId),
+        homeModel
     })
 })
 
