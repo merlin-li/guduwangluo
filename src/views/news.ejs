@@ -67,5 +67,13 @@
                 <%- homeModel.value.codeFooter %>
             </div>
         </footer>
+        <script type="text/javascript" src="/js/jquery.min-1.11.3.js" ></script>
+        <script type="text/javascript">
+        $(function(){
+            $('img').each(function(){
+                $(this).attr('src', 'http://houtaiguanli.com' + $(this).attr('src'))
+            })
+        })
+        </script>
     </body>
 </html>
