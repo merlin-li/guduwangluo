@@ -1,5 +1,6 @@
 // 解决方案
 const router = require('koa-router')()
+const marked = require('marked')
 const optionService = require('../services/goodService')
 
 router.get('/solution', async(ctx, next) => {
@@ -26,10 +27,12 @@ router.get('/solution', async(ctx, next) => {
 router.get('/solution/:id', async(ctx, next) => {
     let caseId = ctx.params.id
     let homeModel = await optionService.getHomeData()
+    let caseModel = await optionService.getContentById(caseId)
 
+    caseModel.content = marked(caseModel.content.toString())
     await ctx.render('solutiondetail', {
         title: '解决方案详情',
-        caseModel: await optionService.getContentById(caseId),
+        caseModel,
         homeModel
     })
 })
