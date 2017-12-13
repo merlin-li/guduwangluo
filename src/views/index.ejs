@@ -157,15 +157,15 @@
                 <div class=" Interaction">
                     <h4>互动开发<a href="" class="rFloat">Read more</a></h4>
                     <p class="itip">专注企业个性化开发</p>
-                    <div class="listNav mb50">
-                        <span>ALL</span>
+                    <div class="listNav mb50" id="div_home_categories">
+                        <span style="cursor: pointer">ALL</span>
                         <% homeCategories.forEach(function(category) { %>
-                            <a><%= category.name %></a>
+                            <a href="javascript:" data-cid="<%= category._id %>"><%= category.name %></a>
                         <% }) %>
                     </div>
-                    <ul class="cf">
-                        <% homeRenderArray.forEach(function(item) { %>
-                        <li>
+                    <ul class="cf" id="div_home_content">
+                        <% homeProducts.forEach(function(item) { %>
+                        <li data-cid="<%= item.category %>">
                             <a href="/customerCase/<%= item.id %>" class="details">
                                 <img width="100%" src="/images/bg_02.png" />    
                                 <img class="up-pic" src="<%= item.thumbnail %>" />
@@ -316,5 +316,18 @@
         <script type="text/javascript" src="/js/swiper.min.js" ></script>
         <script type="text/javascript" src="/js/swiper.animate.min.js" ></script>
         <script type="text/javascript" src="/js/index.js" ></script>
+        <script>
+        $(function() {
+            var homeContent = $('#div_home_content');
+            $('#div_home_categories a').click(function() {
+                var cid = $(this).data('cid')
+                homeContent.find('li').hide();
+                homeContent.find('li[data-cid="' + cid + '"]').fadeIn();
+            })
+            $('#div_home_categories span').click(function() {
+                homeContent.find('li').fadeIn();
+            });
+        });
+        </script>
     </body>
 </html>

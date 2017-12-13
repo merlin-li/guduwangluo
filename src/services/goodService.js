@@ -14,6 +14,29 @@ module.exports = {
     async getHomeCategories() {
         return await dbModels.category.find({keywords: 'homecategory'})
     },
+    async getHomeProducts(ids) {
+        let result = []
+        let products = await dbModels.content
+            .find({})
+            .where('category').in(ids)
+
+        for (let i = 0; i < products.length; i++) {
+            let thumbnail = await this.getMediaById(products[i].thumbnail)
+            let id = '/' + thumbnail._id + '/'
+            let prefix = 'http://houtaiguanli.goodwangluo.com/media/'
+            let date = thumbnail.date.getFullYear().toString() + (thumbnail.date.getMonth() + 1).toString()
+
+            result.push({
+                thumbnail: prefix + date + id + thumbnail.fileName,
+                id: products[i]._id,
+                title: products[i].title,
+                abstract: products[i].abstract,
+                category: products[i].category
+            })
+        }
+
+        return result
+    },
     async getHomeContents() {
         let homeContents = []
         let thumbnails = []
