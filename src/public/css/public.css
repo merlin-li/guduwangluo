@@ -26,6 +26,7 @@ body {
   background: url(../images/logo.png) no-repeat left center;
   width: 144px;
   height: 31px;
+  cursor: pointer;
 }
 .nav .navList li {
   float: left;
