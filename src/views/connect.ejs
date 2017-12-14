@@ -43,24 +43,24 @@
                     <div class="map"><img src="images/map_05.jpg" /></div>
                     <div class="demand">
                         <h3>发布您的需求 以便我们及时联系您</h3>
-                        <input type="text" class="companyName" placeholder="公司名称" />
+                        <input type="text" id="txt_companyName" class="companyName" placeholder="公司名称" />
                         <div class="namephone">
                             <ul class="cf">
-                                <li><input type="text" placeholder="姓名" /></li>
-                                <li><input type="text" placeholder="电话" /></li>
-                                <li><input type="text" placeholder="QQ" /></li>
+                                <li><input type="text" id="txt_name" placeholder="姓名" /></li>
+                                <li><input type="text" id="txt_telphone" placeholder="电话" /></li>
+                                <li><input type="text" id="txt_qq" placeholder="QQ" /></li>
                             </ul>
                         </div>
-                        <textarea class="demandBox" placeholder="填写您的项目需求"></textarea>
+                        <textarea class="demandBox" id="txt_message" placeholder="填写您的项目需求"></textarea>
                     </div>
                     <div class="contpbtt">
-                        <a href="javascript:void(0)" class="btn2 submitMessage">
+                        <a href="javascript:void(0)" id="btn_submit" class="btn2 submitMessage">
                             <span class="line2 line-top2"></span>
                             <span class="line2 line-right2"></span>
                             <span class="line2 line-bottom2"></span>
                             <span class="line2 line-left2"></span>
                             提交留言</a>
-                        <div class="tiptext">亲！提交成功，正在火速联系您</div>
+                        <div class="tiptext" style="display: none" id="tip_result">亲！提交成功，正在火速联系您</div>
                     </div>
                 </div>
             </div>
@@ -90,5 +90,42 @@
                 <%- homeModel.value.codeFooter %>
             </div>
         </footer>
+        <script type="text/javascript" src="/js/jquery.min-1.11.3.js" ></script>
+        <script type="text/javascript">
+        $(function() {
+            let result = $('#tip_result');
+            $('#btn_submit').click(function(){
+                let goodwl = window.localStorage.getItem('goodwl');
+                if (goodwl) {
+                    alert('您今天已经提交过了，请勿重复提交，我们的客服会马上和您联系！')
+                    return;
+                }
+                let qq = $('#txt_qq').val()
+                let name = $('#txt_name').val()
+                let message = $('#txt_message').val()
+                let telphone = $('#txt_telphone').val()
+                let companyName = $('#txt_companyName').val()
+
+                if (name === '') {
+                    alert('姓名不能为空！')
+                } else if (telphone === '') {
+                    alert('电话不能为空！')
+                } else if (message === '') {
+                    alert('请输入您的项目需求！')
+                } else {
+                    window.localStorage.setItem('goodwl', 'yes')
+                    $.post('/contact', {
+                        'name': name,
+                        'qq': qq,
+                        'message': message,
+                        'telphone': telphone,
+                        'companyName': companyName
+                    }, function(res) {
+                        result.show()
+                    })
+                }
+            })
+        })
+        </script>
     </body>
 </html>

@@ -109,5 +109,20 @@ module.exports = {
             thumbnails,
             newsArray
         }
+    },
+    // 添加联系我们
+    async addContact(contactObj) {
+        let contactModel = await new dbModels.contact(contactObj)
+        contactModel.save((error, doc) => {
+            if (error) {
+                return {
+                    'success': 'false'
+                }
+            } else {
+                return {
+                    'success': 'true'
+                }
+            }
+        })
     }
 };

@@ -12,7 +12,25 @@ router.get('/connect', async(ctx, next) => {
     await ctx.render('connect', {
         contactModel,
         homeModel
-    });
+    })
+})
+
+router.post('/contact', async(ctx, next) => {
+    let {
+        name,
+        companyName,
+        telphone,
+        qq,
+        message
+    } = ctx.request.body
+    
+    ctx.body = await categoryService.addContact({
+        name,
+        qq,
+        message,
+        telphone,
+        companyName
+    })
 })
 
 module.exports = router
