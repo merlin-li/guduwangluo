@@ -124,5 +124,8 @@ module.exports = {
                 }
             }
         })
+    },
+    async getContacts() {
+        return await dbModels.contact.find()
     }
 };

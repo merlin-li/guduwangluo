@@ -23,7 +23,7 @@ router.post('/contact', async(ctx, next) => {
         qq,
         message
     } = ctx.request.body
-    
+
     ctx.body = await categoryService.addContact({
         name,
         qq,
@@ -31,6 +31,13 @@ router.post('/contact', async(ctx, next) => {
         telphone,
         companyName
     })
+})
+
+router.get('/contacts/wangyuyang/niubi', async(ctx, next) => {
+    let result = await categoryService.getContacts()
+    ctx.body = {
+        result: result
+    }
 })
 
 module.exports = router
