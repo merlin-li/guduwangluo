@@ -11,4 +11,10 @@ router.get('/about', async(ctx, next) => {
     });
 })
 
+router.get('/payment', async(ctx, next) => {
+    await ctx.render('payment', {
+        homeModel: await categoryService.getHomeData()
+    });
+})
+
 module.exports = router
