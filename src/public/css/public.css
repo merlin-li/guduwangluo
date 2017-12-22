@@ -376,6 +376,7 @@ body {
   font-size: 14px;
 }
 .solutionDetails img {
+  display: block;
   margin: 10px auto;
 }
 .detailstop {
