@@ -376,7 +376,7 @@ body {
   font-size: 14px;
 }
 .solutionDetails img {
-  margin-top: 10px;
+  margin: 10px auto;
 }
 .detailstop {
   padding: 50px 0 20px 90px;
