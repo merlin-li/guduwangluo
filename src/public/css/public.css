@@ -368,11 +368,15 @@ body {
 .solutionDetails {
   padding: 70px 90px 100px;
   color: #80888e;
+  margin: 0 auto;
 }
 .solutionDetails p {
   text-indent: 31px;
   line-height: 2;
   font-size: 14px;
+}
+.solutionDetails img {
+  margin-top: 10px;
 }
 .detailstop {
   padding: 50px 0 20px 90px;
