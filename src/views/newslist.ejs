@@ -38,9 +38,9 @@
                     <h4 class="mt50">新闻列表</h4>
                     <p class="itip">咕德网络一站式解决方案</p>
                     <ul class="cf">
-                        <% solutionModel.forEach(function(item) { %>
+                        <% goodNewsArray.forEach(function(item) { %>
                         <li>
-                            <a class="details" target="_blank" href="/solution/<%= item.id%>">
+                            <a class="details" target="_blank" href="/news/<%= item.id%>">
                                 <img width="100%" src="images/bg_02.png" />    
                                 <img class="up-pic" src="<%= item.thumbnail %>" />
                                 <div class="up-graybox">
