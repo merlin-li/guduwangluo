@@ -24,7 +24,9 @@ module.exports = {
             let thumbnail = await this.getMediaById(products[i].thumbnail)
             let id = '/' + thumbnail._id + '/'
             let prefix = 'http://houtaiguanli.goodwangluo.com/media/'
-            let date = thumbnail.date.getFullYear().toString() + (thumbnail.date.getMonth() + 1).toString()
+            let month = thumbnail.date.getMonth() + 1
+            month = month >= 10 ? month.toString() : '0' + month.toString()
+            let date = thumbnail.date.getFullYear().toString() + month.toString()
 
             result.push({
                 thumbnail: prefix + date + id + thumbnail.fileName,
@@ -53,7 +55,9 @@ module.exports = {
             let thumbnail = await this.getMediaById(homeContents[i].thumbnail)
             let id = '/' + thumbnail._id + '/'
             let prefix = 'http://houtaiguanli.goodwangluo.com/media/'
-            let date = thumbnail.date.getFullYear().toString() + (thumbnail.date.getMonth() + 1).toString()
+            let month = thumbnail.date.getMonth() + 1
+            month = month >= 10 ? month.toString() : '0' + month.toString()
+            let date = thumbnail.date.getFullYear().toString() + month.toString()
             thumbnails.push(prefix + date + id + thumbnail.fileName)
         }
 
@@ -81,7 +85,9 @@ module.exports = {
             let thumbnail = await this.getMediaById(solutionArray[i].thumbnail)
             let id = '/' + thumbnail._id + '/'
             let prefix = 'http://houtaiguanli.goodwangluo.com/media/'
-            let date = thumbnail.date.getFullYear().toString() + (thumbnail.date.getMonth() + 1).toString()
+            let month = thumbnail.date.getMonth() + 1
+            month = month >= 10 ? month.toString() : '0' + month.toString()
+            let date = thumbnail.date.getFullYear().toString() + month.toString()
             thumbnails.push(prefix + date + id + thumbnail.fileName)
         }
 
@@ -101,7 +107,9 @@ module.exports = {
             let thumbnail = await this.getMediaById(newsArray[i].thumbnail)
             let id = '/' + thumbnail._id + '/'
             let prefix = 'http://houtaiguanli.goodwangluo.com/media/'
-            let date = thumbnail.date.getFullYear().toString() + (thumbnail.date.getMonth() + 1).toString()
+            let month = thumbnail.date.getMonth() + 1
+            month = month >= 10 ? month.toString() : '0' + month.toString()
+            let date = thumbnail.date.getFullYear().toString() + month.toString()
             thumbnails.push(prefix + date + id + thumbnail.fileName)
         }
 
