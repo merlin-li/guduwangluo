@@ -8,22 +8,18 @@ router.get('/customerCase', async(ctx, next) => {
     let homeDataObj = await optionService.getHomeContents()
     let homeModel = await optionService.getHomeData()
     let homeRenderArray = []
+    let categoryIDs = []
 
-    if (homeDataObj.homeContents && homeDataObj.thumbnails) {
-        for (let i = 0; i < homeDataObj.homeContents.length; i++) {
-            homeRenderArray.push({
-                thumbnail: homeDataObj.thumbnails[i],
-                title: homeDataObj.homeContents[i].title,
-                abstract: homeDataObj.homeContents[i].abstract,
-                id: homeDataObj.homeContents[i]._id
-            })
-        }
+    for (let i = 0; i < homeCategories.length; i++) {
+        categoryIDs.push(homeCategories[i]._id)
     }
+
+    let homeProducts = await optionService.getHomeProducts(categoryIDs)
 
     await ctx.render('customcase', {
         title: '客户案例',
         homeCategories,
-        homeRenderArray,
+        homeProducts,
         homeModel
     });
 })
