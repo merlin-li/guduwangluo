@@ -42,7 +42,7 @@
                             <a href="javascript:" data-cid="<%= category._id %>"><%= category.name %></a>
                         <% }) %>
                     </div>
-                    <ul class="cf">
+                    <ul class="cf" id="div_home_content">
                         <% homeProducts.forEach(function(item) { %>
                         <li data-cid="<%= item.category %>">
                             <a href="/customerCase/<%= item.id %>" class="details">
