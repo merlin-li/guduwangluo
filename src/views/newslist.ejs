@@ -17,7 +17,7 @@
                     <li><a href="/sitepackage" class="btn">建站套餐<b class="hot"></b></a></li>
                     <li><a href="/appcustom" class="btn">APP定制</a></li>
                     <li><a href="/customerCase" class="btn">客户案例</a></li>
-                    <li><a href="/solution" class="active btn">解决方案</a></li>
+                    <li><a href="/solution" class="btn">解决方案</a></li>
                     <li><a href="/qutsourcing" class="btn">技术外包</a></li>
                     <li><a href="/about" class="btn">关于咕德</a></li>
                     <li><a href="/connect" class="btn">联系我们</a></li>
@@ -40,14 +40,15 @@
                     <ul class="cf">
                         <% goodNewsArray.forEach(function(item) { %>
                         <li>
-                            <a class="details" target="_blank" href="/news/<%= item.id%>">
-                                <img width="100%" src="images/bg_02.png" />    
+                            <a href="/news/<%= item.id %>" class="details">
+                                <img width="100%" src="/images/bg_02.png" />
                                 <img class="up-pic" src="<%= item.thumbnail %>" />
-                                <div class="up-graybox">
-                                    <span class="bgbox"></span>
-                                </div>
                             </a>
-                            <div class="textBtn"><%= item.title %></div>
+                            <div class="cont-wrap">
+                                <h5><%= item.title %></h5>
+                                <span><%= item.abstract %></span>
+                                <p><b class="lFloat">Read more</b><a href="/news/<%= item.id %>" class="rFloat"></a></p>
+                            </div>
                         </li>
                         <% }) %>
                     </ul>
