@@ -8,6 +8,9 @@ module.exports = {
     async getContcat() {
         return await dbModels.category.findOne({name: '联系我们'})
     },
+    async getBannerData(name) {
+        return await dbModels.category.findOne({name})
+    },
     async getHomeData() {
         return await dbModels.option.findOne({name: 'siteInfo'})
     },

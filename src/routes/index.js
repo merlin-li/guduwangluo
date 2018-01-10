@@ -34,4 +34,16 @@ router.get('/', async(ctx, next) => {
         goodNewsArray
     });
 })
+
+router.get('/banner/:bannerId', async(ctx, next) => {
+    let homeModel = await optionService.getHomeData()
+    let aboutModel = await optionService.getBannerData(ctx.params.bannerId)
+    // let aboutModel = await optionService.getAboutUs(ctx.params.bannerId)
+
+    await ctx.render('banner', {
+        homeModel,
+        aboutModel
+    })
+})
+
 module.exports = router
