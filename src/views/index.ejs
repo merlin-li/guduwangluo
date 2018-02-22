@@ -203,7 +203,7 @@
                 <div class=" information">
                     <h4 >行业资讯<a href="" class="rFloat">Read more</a></h4>
                     <p class="itip">让价值共享，记录企业发展脚步</p>
-                    <ul class="cf">
+                    <ul class="cf" id="homeNews">
                         <% goodNewsArray.forEach(function(item) { %>
                         <li>
                             <a href="/news/<%= item.id %>" class="details">
@@ -330,11 +330,31 @@
         <script>
         $(function() {
             var homeContent = $('#div_home_content');
+            var homeProducts = homeContent.find('li');
+            var homeNews = $('#homeNews');
+            var productReminder = homeProducts.length % 3;
+            var productLength = homeProducts.length;
+            var homeNewsLength = homeNews.find('li').length;
+            var homeNewsReminder = homeNewsLength % 3;
+
+            if (productReminder > 0) {
+                // 隐藏掉多余的部分
+                // productLength = 5, productReminder = 2
+                // productLength = 4, productReminder = 1
+                for (let i = productLength - productReminder; i < productLength; i++) {
+                    homeContent.find('li:eq(' + i + ')').hide();
+                }
+            }
+            if (homeNewsReminder > 0) {
+                for (let i = homeNewsLength - homeNewsReminder; i < homeNewsLength; i++) {
+                    homeNews.find('li:eq(' + i + ')').hide();
+                }
+            }
             $('#div_home_categories a').click(function() {
                 var cid = $(this).data('cid')
                 homeContent.find('li').hide();
                 homeContent.find('li[data-cid="' + cid + '"]').fadeIn();
-            })
+            });
             $('#div_home_categories span').click(function() {
                 homeContent.find('li').fadeIn();
             });
@@ -342,3 +362,4 @@
         </script>
     </body>
 </html>
+ 

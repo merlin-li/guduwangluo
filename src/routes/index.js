@@ -15,7 +15,7 @@ router.get('/', async(ctx, next) => {
     let homeProducts = await optionService.getHomeProducts(categoryIDs)
 
     console.log(homeProducts)
-
+    
     if (goodNewsObj.newsArray && goodNewsObj.thumbnails) {
         for (let i = 0; i < goodNewsObj.newsArray.length; i++) {
             goodNewsArray.push({
