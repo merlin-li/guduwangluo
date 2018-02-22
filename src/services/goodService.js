@@ -22,6 +22,7 @@ module.exports = {
         let products = await dbModels.content
             .find({})
             .where('category').in(ids)
+            .sort('-date')
 
         for (let i = 0; i < products.length; i++) {
             let thumbnail = await this.getMediaById(products[i].thumbnail)
@@ -104,7 +105,9 @@ module.exports = {
         let thumbnails = []
         let newsCategory = await dbModels.category.findOne({keywords: 'homenews'})
         let newsCategoryId = newsCategory._id
-        let newsArray = await dbModels.content.find({category: newsCategoryId})
+        let newsArray = await dbModels.content
+            .find({category: newsCategoryId})
+            .sort('-date')
 
         for (let i = 0; i < newsArray.length; i++) {
             let thumbnail = await this.getMediaById(newsArray[i].thumbnail)
