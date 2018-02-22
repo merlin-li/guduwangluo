@@ -337,14 +337,17 @@
             var homeNewsLength = homeNews.find('li').length;
             var homeNewsReminder = homeNewsLength % 3;
 
-            if (productReminder > 0) {
-                // 隐藏掉多余的部分
-                // productLength = 5, productReminder = 2
-                // productLength = 4, productReminder = 1
-                for (let i = productLength - productReminder; i < productLength; i++) {
-                    homeContent.find('li:eq(' + i + ')').hide();
+            function _handleHomeContent() {
+                if (productReminder > 0) {
+                    // 隐藏掉多余的部分
+                    // productLength = 5, productReminder = 2
+                    // productLength = 4, productReminder = 1
+                    for (let i = productLength - productReminder; i < productLength; i++) {
+                        homeContent.find('li:eq(' + i + ')').hide();
+                    }
                 }
             }
+            _handleHomeContent();
             if (homeNewsReminder > 0) {
                 for (let i = homeNewsLength - homeNewsReminder; i < homeNewsLength; i++) {
                     homeNews.find('li:eq(' + i + ')').hide();
@@ -357,6 +360,7 @@
             });
             $('#div_home_categories span').click(function() {
                 homeContent.find('li').fadeIn();
+                _handleHomeContent();
             });
         });
         </script>
