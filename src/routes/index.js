@@ -1,4 +1,5 @@
 const router = require('koa-router')()
+const marked = require('marked')
 const optionService = require('../services/goodService')
 
 router.get('/', async(ctx, next) => {
@@ -40,6 +41,7 @@ router.get('/banner/:bannerId', async(ctx, next) => {
     let aboutModel = await optionService.getBannerData(ctx.params.bannerId)
     // let aboutModel = await optionService.getAboutUs(ctx.params.bannerId)
 
+    aboutModel.mixed.pageContent = marked(aboutModel.mixed.pageContent.toString())
     await ctx.render('banner', {
         homeModel,
         aboutModel
