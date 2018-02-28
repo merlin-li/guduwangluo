@@ -38,7 +38,7 @@
             <div class="topimg main"><img src="/images/gybanner_02.jpg" /></div>
 
             <div class="main bgwhite" style="margin: 0 auto 20px;">
-                <div class="aboutcontent">
+                <div class="aboutcontent" id="bannerContent">
                     <p><%- aboutModel.mixed.pageContent %></p>
                 </div>
             </div>
@@ -69,5 +69,13 @@
                 <%- homeModel.value.codeFooter %>
             </div>
         </footer>
+        <script type="text/javascript" src="/js/jquery.min-1.11.3.js" ></script>
+        <script type="text/javascript">
+        $(function(){
+            $('#bannerContent img').each(function(){
+                $(this).attr('src', 'http://houtaiguanli.goodwangluo.com' + $(this).attr('src'))
+            })
+        })
+        </script>
     </body>
 </html>
