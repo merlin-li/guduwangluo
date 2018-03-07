@@ -108,6 +108,7 @@ module.exports = {
         let newsArray = await dbModels.content
             .find({category: newsCategoryId})
             .sort('-date')
+            .limit(6)
 
         for (let i = 0; i < newsArray.length; i++) {
             let thumbnail = await this.getMediaById(newsArray[i].thumbnail)
