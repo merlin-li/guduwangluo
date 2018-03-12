@@ -17,7 +17,7 @@ router.get('/news/:id', async(ctx, next) => {
 })
 
 router.get('/news', async(ctx, next) => {
-    let result = await optionService.getNews()
+    let result = await optionService.getNews(true)
     let homeModel = await optionService.getHomeData()
 
     let goodNewsArray = []

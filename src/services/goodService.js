@@ -101,7 +101,7 @@ module.exports = {
         }
     },
     // 获取行业资讯
-    async getNews() {
+    async getNews(isAll) {
         let thumbnails = []
         let newsCategory = await dbModels.category.findOne({keywords: 'homenews'})
         let newsCategoryId = newsCategory._id
@@ -109,6 +109,12 @@ module.exports = {
             .find({category: newsCategoryId})
             .sort('-date')
             .limit(6)
+            
+        if (isAll) {
+            newsArray = await dbModels.content
+                .find({category: newsCategoryId})
+                .sort('-date')
+        }
 
         for (let i = 0; i < newsArray.length; i++) {
             let thumbnail = await this.getMediaById(newsArray[i].thumbnail)
