@@ -21,7 +21,7 @@ router.get('/news', async(ctx, next) => {
     let homeModel = await optionService.getHomeData()
 
     let goodNewsArray = []
-    let goodNewsObj = await optionService.getNews()
+    let goodNewsObj = await optionService.getNews(true)
     if (goodNewsObj.newsArray && goodNewsObj.thumbnails) {
         for (let i = 0; i < goodNewsObj.newsArray.length; i++) {
             goodNewsArray.push({
