@@ -8,5 +8,7 @@ module.exports = new ContentsSchema({
     alias: String,
     content: String,
     thumbnail: ContentsSchema.Types.ObjectId,
-    abstract: String
+    abstract: String,
+    date: Date,
+    reading: Object
 }, {versionKey: false});

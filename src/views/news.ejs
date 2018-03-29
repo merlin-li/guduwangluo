@@ -4,6 +4,8 @@
     <head>
         <meta charset="utf-8" />
         <title><%= newsModel.title%></title>
+        <meta name="keywords" content="<%= newsModel.title%>">
+        <meta name="description" content="<%= newsModel.abstract %>"> 
         <link rel="stylesheet" type="text/css" href="/css/public.css"/>
         <link rel="shortcut icon" href="/images/bitbug_favicon.ico" />
         <script>
@@ -43,7 +45,9 @@
         <section>
             <div class="main detailstop cf">
                 <h1><%= newsModel.title%></h1>
-                <span class="lFloat">来源：咕德网络 </span>
+                <span class="lFloat" style="margin-right:20px;">来源：咕德网络 </span>
+                <span class="lFloat" style="margin-right:20px;">时间：<%= (new Date(newsModel.date)).toLocaleDateString() %> </span>
+                <span class="lFloat">浏览：<%= newsModel.reading.total %> </span> 
             </div>
             <div class="main bgwhite" style="margin: 0 auto 45px;">
                 <div class="solutionDetails">

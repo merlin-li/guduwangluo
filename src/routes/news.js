@@ -9,6 +9,7 @@ router.get('/news/:id', async(ctx, next) => {
     let newsModel = await optionService.getContentById(newsId)
 
     newsModel.content = marked(newsModel.content.toString())
+    optionService.updateContentById(newsId)
     await ctx.render('news', {
         title: '行业资讯',
         newsModel,

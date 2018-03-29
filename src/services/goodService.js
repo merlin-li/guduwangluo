@@ -148,5 +148,12 @@ module.exports = {
     },
     async getContacts() {
         return await dbModels.contact.find()
+    },
+    async updateContentById(_id) {
+        let newsContent = await this.getContentById(_id)
+        let total = newsContent.reading.total
+        total+=1
+        dbModels.content.where({_id})
+            .update({'reading': {total}}, () => {})
     }
 };
