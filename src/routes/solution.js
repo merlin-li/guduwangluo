@@ -29,6 +29,7 @@ router.get('/solution/:id', async(ctx, next) => {
     let homeModel = await optionService.getHomeData()
     let caseModel = await optionService.getContentById(caseId)
 
+    optionService.updateContentById(caseId)
     caseModel.content = marked(caseModel.content.toString())
     await ctx.render('solutiondetail', {
         title: '解决方案详情',

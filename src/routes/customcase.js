@@ -29,6 +29,7 @@ router.get('/customerCase/:id', async(ctx, next) => {
     let homeModel = await optionService.getHomeData()
     let caseModel = await optionService.getContentById(caseId)
 
+    optionService.updateContentById(caseId)
     caseModel.content = marked(caseModel.content.toString())
     await ctx.render('customcasedetail', {
         caseModel,
