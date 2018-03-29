@@ -152,7 +152,7 @@ module.exports = {
     async updateContentById(_id) {
         let newsContent = await this.getContentById(_id)
         let total = newsContent.reading.total
-        total+=1
+        total += parseInt(Math.random() * 10)
         dbModels.content.where({_id})
             .update({'reading': {total}}, () => {})
     }
